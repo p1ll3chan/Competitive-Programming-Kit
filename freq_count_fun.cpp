@@ -1,70 +1,69 @@
+#include <bits/stdc++.h>
+using namespace std;
 
-
-
-// TO count the number of time an array
-while (n > 0) {
-    int digit = n % 10; // Get last digit
-    count[digit]++; // Increment count for this digit
-    n /= 10; // Remove last digit
+// Count frequency of digits in an integer (0-9)
+array<int, 10> digitFrequency(long long n) {
+    array<int, 10> count{};                // stores count of digits 0-9
+    while (n > 0) {                        // loop until all digits processed
+        int digit = n % 10;                // extract last digit
+        count[digit]++;                    // increment frequency of this digit
+        n /= 10;                           // remove last digit
+    }
+    return count;                          // return digit frequencies
 }
 
-
-// to count the count of unique values
-solve(){
-    vector<int> feq(n+1,0);
-    for(int i=0;i<n;i++){
-        feq[v[i]]++;
+// Count frequency of each integer in an array
+vector<int> integerFrequency(const vector<int>& v, int maxValue) {
+    vector<int> freq(maxValue + 1, 0);     // initialize frequency array
+    for (int num : v) {                    // loop through all elements
+        if (num <= maxValue) freq[num]++;  // increment freq for valid numbers
     }
-    int x=0;
-    for(int i=0;i<=n;i++){
-        x+=feq[i]/2;
-    }
-   }
+    return freq;                           // return frequency array
+}
 
- //Count of a number in an array
-    
- int count = upper_bound(v.begin(), v.end(), x) - lower_bound(v.begin(), v.end(), x);
-
-//Gives out that element which give most number of frequency out of the vector<string> 
-int mostFrequentElement(vector<int>& v) {
-    unordered_map<int, int> freq;
-    
-    for (int num : v) {
-        freq[num]++;
+// Count number of pairs for each value (freq / 2)
+int countPairsFromFrequency(const vector<int>& freq) {
+    int pairs = 0;
+    for (int f : freq) {                   // loop through each frequency
+        pairs += f / 2;                    // add number of pairs from freq
     }
+    return pairs;                          // return total pairs
+}
+
+// Count occurrences of a number using binary search (sorted array)
+int countOccurrencesSorted(const vector<int>& v, int x) {
+    return upper_bound(v.begin(), v.end(), x) // first element greater than x
+         - lower_bound(v.begin(), v.end(), x); // first element equal to x
+}
+
+// Most frequent integer in array
+int mostFrequentElement(const vector<int>& v) {
+    unordered_map<int, int> freq;          // map to store freq of each int
+    for (int num : v) freq[num]++;         // count frequency of each integer
     
-    int maxCount = 0;
-    int mostFrequent = v[0];
-    
-    for (const auto& entry : freq) {
-        if (entry.second > maxCount) {
-            maxCount = entry.second;
-            mostFrequent = entry.first;
+    int maxCount = 0, mostFrequent = v[0];
+    for (auto& [num, count] : freq) {      // iterate over all map entries
+        if (count > maxCount) {            // check if higher freq found
+            maxCount = count;              // update max frequency
+            mostFrequent = num;            // update most frequent number
         }
     }
-    
-    return mostFrequent;
+    return mostFrequent;                   // return most frequent integer
 }
 
-//Gives out that string which give most number of frequency out of the vector<string> 
-string mostFrequentString(vector<string>& v) {
-    unordered_map<string, int> freq;
-    
-    // *Count frequency of each string
-    for (const string& s : v) {
-        freq[s]++;
-    }
+// Most frequent string in array
+string mostFrequentString(const vector<string>& v) {
+    unordered_map<string, int> freq;       // map to store freq of each string
+    for (auto& s : v) freq[s]++;           // count frequency of each string
     
     int maxCount = 0;
     string mostFrequent;
-    
-    // *Find the string with the highest frequency
-    for (const auto& entry : freq) {
-        if (entry.second > maxCount) {
-            maxCount = entry.second;
-            mostFrequent = entry.first;  // *Update with the string having the highest frequency
+    for (auto& [str, count] : freq) {      // iterate over all map entries
+        if (count > maxCount) {            // check if higher freq found
+            maxCount = count;              // update max frequency
+            mostFrequent = str;            // update most frequent string
         }
     }
-    
-    return mostFrequent;
+    return mostFrequent;                   // return most frequent string
 }
+
