@@ -17,9 +17,9 @@ It contains:
 ## 🌍 My CP Profiles
 | Platform       | Username / Profile Link |
 |----------------|-------------------------|
-| **Codeforces** | [p1ll3chan_198](https://codeforces.com/profile/p1ll3chan_198) |
+| **Codeforces** | [p1ll3chan](https://codeforces.com/profile/p1ll3chan) |
 | **CodeChef**   | [starlord_arp68](https://www.codechef.com/users/starlord_arp68) |
-| **AtCoder**    | [starlord_arp68](https://atcoder.jp/users/starlord_arp68) |
+| **AtCoder**    | [p1ll3chan](https://atcoder.jp/users/p1ll3chan) |
 
 ---
 
