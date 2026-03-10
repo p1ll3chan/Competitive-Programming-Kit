@@ -1,0 +1,74 @@
+#include &lt;bits/stdc&#43;&#43;.h&gt;
+using namespace std;
+
+#define int long long
+#define all(x) (x).begin(), (x).end()
+#define endl &#34;\n&#34;
+#define sz(x) (int)((x).size())
+#define f first
+#define s second
+#define pb push_back
+#define vi vector&lt;int&gt;
+#define rall(c) c.rbegin(),c.rend()
+#define vii vector&lt;vector&lt;int&gt;&gt;
+#define pii pair&lt;int, int&gt;
+#define fastio() ios::sync_with_stdio(0); cin.tie(0); cout.tie(0)
+#define YES cout &lt;&lt; &#34;Yes&#34; &lt;&lt; endl
+#define NO cout &lt;&lt; &#34;No&#34; &lt;&lt; endl
+#define YESNO(x) cout &lt;&lt; ((x) ? &#34;YES&#34; : &#34;NO&#34;) &lt;&lt; endl
+#define debug(x) cerr &lt;&lt; #x &lt;&lt; &#34; = &#34; &lt;&lt; (x) &lt;&lt; endl;
+#define debugArr(arr) for (auto v : arr) cerr &lt;&lt; v &lt;&lt; &#34; &#34;; cerr &lt;&lt; endl;
+#define readVec(v, n) for (int i = 0; i &lt; n; &#43;&#43;i) cin &gt;&gt; v[i];
+#define readMatrix(mat, n, m) for (int i = 0; i &lt; n; &#43;&#43;i) for (int j = 0; j &lt; m; &#43;&#43;j) cin &gt;&gt; mat[i][j];
+#define printVec(v) for (auto x : v) cout &lt;&lt; x &lt;&lt; &#34; &#34;; cout &lt;&lt; endl;
+#define printMatrix(mat) for (auto r : mat) { printVec(r); }
+#define fp(i, a, b) for (int i = (a); i &lt; (b); &#43;&#43;i)
+
+void solve() {
+    string s;cin&gt;&gt;s;
+    int n=s.size();
+    // for (int i = -10; i &lt; 10; i&#43;&#43;)
+    // {
+        for (int j = -10; j &lt; 10; j&#43;&#43;)
+        {
+            for (int k = -10; k &lt; 10; k&#43;&#43;)
+            {
+                for (int l = -10; l &lt; 10; l&#43;&#43;)
+                {
+                    if(j&#43;k&#43;l==7-(s[0]-&#39;0&#39;)){
+                        if((j==(s[1]-&#39;0&#39;) || j==(s[1]-&#39;0&#39;)*-1) &amp;&amp; (k==(s[2]-&#39;0&#39;) || k==(s[2]-&#39;0&#39;)*-1) &amp;&amp; (l==(s[3]-&#39;0&#39;) || l==(s[3]-&#39;0&#39;)*-1)){
+                            //cout&lt;&lt;i&lt;&lt;&#34;&#43;&#34;&lt;&lt;j&lt;&lt;&#34;&#43;&#34;&lt;&lt;k&lt;&lt;&#34;&#43;&#34;&lt;&lt;l&lt;&lt;&#34;=&#34;&lt;&lt;7;
+                            cout&lt;&lt;s[0]-&#39;0&#39;;
+                            auto print=[&amp;](int x){
+                                if(x&lt;0)cout&lt;&lt;&#34;-&#34;&lt;&lt;-x;
+                                else cout&lt;&lt;&#34;&#43;&#34;&lt;&lt;x;
+                            };
+                            print(j);
+                            print(k);
+                            print(l);
+                            cout&lt;&lt;&#34;=&#34;&lt;&lt;7;
+                            return;
+                        }
+                        
+                    //}
+                }
+                
+            }
+            
+        }
+        
+    }    
+}
+
+void test() {
+    int t;
+    cin &gt;&gt; t;
+    while (t--) solve();
+}
+
+int32_t main() {
+    fastio();
+    // test();
+    solve();
+    return 0;
+}
