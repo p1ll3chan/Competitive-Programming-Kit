@@ -23,20 +23,15 @@ using namespace std;
 #define printVec(v) for (auto x : v) cout << x << " "; cout << endl;
 #define printMatrix(mat) for (auto r : mat) { printVec(r); }
 #define fp(i, a, b) for (int i = (a); i < (b); ++i)
-
+//[0,25], (25,50], (50,75], (75,100]
 void solve() {
-    int n;
-    cin >> n;
-    int y=n/365;
-    n%=365;
-
-    int m=n/30;
-    int d=n%30;
-
-    cout<<y<<" years"<<endl;
-    cout<<m<<" months"<<endl;
-    cout<<d<<" days"<<endl;
-    // Your logic here
+    float n;cin>>n;
+    if(n>=0 && n<=25)   cout<<"Interval [0,25]";
+    if(n>25 && n<=50)   cout<<"Interval (25,50]";
+    if(n>50 && n<=75)   cout<<"Interval (50,75]";
+    if(n>75 && n<=100)  cout<<"Interval (75,100]";
+    if(n<0) cout<<"Out of Intervals";
+    if(n>100) cout<<"Out of Intervals";
 }
 
 void test() {

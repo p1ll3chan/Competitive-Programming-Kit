@@ -27,16 +27,7 @@ using namespace std;
 void solve() {
     int n;
     cin >> n;
-    int y=n/365;
-    n%=365;
-
-    int m=n/30;
-    int d=n%30;
-
-    cout<<y<<" years"<<endl;
-    cout<<m<<" months"<<endl;
-    cout<<d<<" days"<<endl;
-    // Your logic here
+    cout<<(n*(n+1))/2<<endl;
 }
 
 void test() {

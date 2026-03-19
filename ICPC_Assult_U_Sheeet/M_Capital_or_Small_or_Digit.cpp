@@ -25,18 +25,16 @@ using namespace std;
 #define fp(i, a, b) for (int i = (a); i < (b); ++i)
 
 void solve() {
-    int n;
-    cin >> n;
-    int y=n/365;
-    n%=365;
-
-    int m=n/30;
-    int d=n%30;
-
-    cout<<y<<" years"<<endl;
-    cout<<m<<" months"<<endl;
-    cout<<d<<" days"<<endl;
-    // Your logic here
+    char n;cin>>n;
+    if(n>='a' && n<='z') {
+        cout<<"ALPHA"<<endl;
+        cout<<"IS SMALL"<<endl;
+    }
+    if(n>='A' && n<='Z') {
+        cout<<"ALPHA"<<endl;
+        cout<<"IS CAPITAL"<<endl;
+    }
+    if(n>='0' && n<='9') cout<<"IS DIGIT"<<endl;
 }
 
 void test() {

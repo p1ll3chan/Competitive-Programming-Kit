@@ -25,18 +25,17 @@ using namespace std;
 #define fp(i, a, b) for (int i = (a); i < (b); ++i)
 
 void solve() {
-    int n;
-    cin >> n;
-    int y=n/365;
-    n%=365;
-
-    int m=n/30;
-    int d=n%30;
-
-    cout<<y<<" years"<<endl;
-    cout<<m<<" months"<<endl;
-    cout<<d<<" days"<<endl;
-    // Your logic here
+    int a,b,c,d;cin>>a>>b>>c>>d;
+    int x=a*b*c*d;
+    //debug(x)
+    //string s=to_string(x);
+    //debug(s)
+    //cout<<s[s.size()-2]<<s[s.size()-1]<<endl;
+    int ans1=(x%10);
+    int ans2=((x/10)%10);
+    cout<<ans2<<ans1<<endl;
+    // debug(ans1)
+    // debug(ans2)
 }
 
 void test() {

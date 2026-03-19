@@ -25,18 +25,9 @@ using namespace std;
 #define fp(i, a, b) for (int i = (a); i < (b); ++i)
 
 void solve() {
-    int n;
-    cin >> n;
-    int y=n/365;
-    n%=365;
-
-    int m=n/30;
-    int d=n%30;
-
-    cout<<y<<" years"<<endl;
-    cout<<m<<" months"<<endl;
-    cout<<d<<" days"<<endl;
-    // Your logic here
+    char n;cin>>n;
+    if(islower(n)) cout<<(char)(n-32)<<endl;
+    else cout<<(char)(n+32)<<endl;
 }
 
 void test() {
