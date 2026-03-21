@@ -26,6 +26,10 @@ using namespace std;
 
 void solve() {
     int a,b,c,d;cin>>a>>b>>c>>d;
+    a%=100;
+    b%=100;
+    c%=100;
+    d%=100;
     int x=a*b*c*d;
     //debug(x)
     //string s=to_string(x);

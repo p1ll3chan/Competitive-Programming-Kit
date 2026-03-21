@@ -25,15 +25,13 @@ using namespace std;
 #define fp(i, a, b) for (int i = (a); i < (b); ++i)
 
 void solve() {
-    int a,c;
-    char b;
-    cin>>a>>b>>c;
-    if(a>c && b=='>') cout<<"Right"<<endl;
-    else if(a<c && b=='<') cout<<"Right"<<endl;
-    else if(a==c && b=='=') cout<<"Right"<<endl;
-    else cout<<"Wrong"<<endl;
+    int n;
+    cin >> n;
+    for (int i = 0; i < n; i++)
+    {
+        cout<<i+1<<endl;
+    }
     
-
 }
 
 void test() {

@@ -23,17 +23,13 @@ using namespace std;
 #define printVec(v) for (auto x : v) cout << x << " "; cout << endl;
 #define printMatrix(mat) for (auto r : mat) { printVec(r); }
 #define fp(i, a, b) for (int i = (a); i < (b); ++i)
-
+int sum(int a,int b){
+    return a+b;
+}
 void solve() {
-    int a,c;
-    char b;
-    cin>>a>>b>>c;
-    if(a>c && b=='>') cout<<"Right"<<endl;
-    else if(a<c && b=='<') cout<<"Right"<<endl;
-    else if(a==c && b=='=') cout<<"Right"<<endl;
-    else cout<<"Wrong"<<endl;
-    
-
+    int n,m;
+    cin >> n >> m;
+    cout<<sum(n,m)<<endl;
 }
 
 void test() {

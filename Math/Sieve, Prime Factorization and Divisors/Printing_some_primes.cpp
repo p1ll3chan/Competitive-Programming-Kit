@@ -54,7 +54,7 @@ void solve_1() {
 
 void solve(){
     bitset<N+1> p;
-    p.reset();   // Now function
+    p.reset();   // Now function [  reset() sets all bits to 0 (false)  ]
     for (int i = 3; i <= N; i+=2)
     {
         p[i]=1;
