@@ -23,13 +23,46 @@ using namespace std;
 #define printVec(v) for (auto x : v) cout << x << " "; cout << endl;
 #define printMatrix(mat) for (auto r : mat) { printVec(r); }
 #define fp(i, a, b) for (int i = (a); i < (b); ++i)
+/*
+    THe goal of making, in the given 1 to j space,  we need to arrange 2 chars '*' and ' ';
+
+    Inside the nested for loop ;
+    the first for loop will arrange the spaces need to produce.
+    
+    Here we have an observation, 
+    when loop STOP is only n, the space will be constant till a space n from the origin and when we implemenent the stars we will get a Right-Triangle of Stars
+    like this
+        *
+        ***
+        *****
+        *******
+
+    While loop STOP is n-i, Each space will grow from n-1 to 1, where space will decrase in each iteration.
+    and when we implement the star at an order of odd numbers in increasing order.
+    This is what we get,
+           *
+          ***
+         *****
+        ******* 
+
+
+*/
 
 void solve() {
     int n;
     cin >> n;
-    vi v(n);
-    readVec(v, n);
-    // Your logic here
+    for (int i = 1; i <= n; i++)
+    {
+        for (int j = 1; j <= n-i; j++)
+        {
+            cout<<" ";
+        }
+        for (int k = 1; k <= (2*i)-1; k++)
+            {
+                cout<<"*";
+            }
+        cout<<endl;
+    } 
 }
 
 void test() {
