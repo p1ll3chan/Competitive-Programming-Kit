@@ -28,12 +28,12 @@ void solve() {
     int n,m;cin>>n>>m;
     int a=min(n,m);
     int b=max(n,m);
-    if(a%2==0) a++;
-    else a--;
+    // if(a%2==0) a++;
+    // else a--;
     int sum=0;
-    for (int i = a; i < b; i+=2)
+    for (int i = a+1; i < b; i++)
     {
-        sum+=i;
+        if(i%2==1)sum+=i;
     }
     cout<<sum<<endl;
     
