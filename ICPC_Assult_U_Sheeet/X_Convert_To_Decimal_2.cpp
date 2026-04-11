@@ -24,90 +24,22 @@ using namespace std;
 #define printMatrix(mat) for (auto r : mat) { printVec(r); }
 #define fp(i, a, b) for (int i = (a); i < (b); ++i)
 
-
-// 3 -> 011
-// 4 -> 100
-
-/*
-
-In order to get the binary experssion of a number we can use 2 simple math operations for it
-TO get the bit value in reverse order -> [ n % 2 ]
-to get the next bit we need to move the indicated to the right , which can be achieved by fixinng that indiacter in the one's digit and remove the last value everytime -> [ n / 2 ]
-
-
-// 3 -> 011
-
-take = 1 *
-n = 1
-take = 1 *
-n = 0
-
-11_ is 110, reverse it then '011'
-
-
-// 4 -> 100
-
-take = 0
-n = 2
-take = 0
-n = 1
-take = 1
-n = 0
-
-001, reverse it then '100'
-
-
-This two willgo till that n < 0 , so while the process to see through.
-*/
-string check(int n){
-    int reversed = 0;
-    int orginal=n;
-    while(n > 0){
-    reversed = reversed * 2 + (n % 2);
-    // int take= n % 2;
-    // debug(take);
-    n = n / 2;
-    //debug(n);
-    }
-    return (orginal==reversed)? "YES" : "NO";
-}
-
 void solve() {
     int n;
     cin >> n;
-    if(n%2==0){
-        NO;
-    }else{
-        cout<<check(n)<<endl;
+    int cnt=0;
+    while(n){
+        n=n&(n-1);
+        cnt++;
     }
-    //cout<<check(n)<<endl;
-    // Your logic here
+    int sum=0;
+    for (int i = 0; i < cnt; i++)
+    {
+        sum+=pow(2,i);
+    }
+    cout<<sum<<endl;
 }
-/*
 
-3 - > 011
-4 -> 10
-5 -> 101
-
-0
-1
-3
-5
-7
-9
-15
-17
-21
-27
-31
-33
-45
-51
-63
-65
-
-
-*/
 void test() {
     int t;
     cin >> t;
@@ -116,7 +48,7 @@ void test() {
 
 int32_t main() {
     fastio();
-    // test();
-    solve();
+    test();
+    //solve();
     return 0;
 }
