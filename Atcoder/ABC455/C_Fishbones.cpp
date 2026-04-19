@@ -14,7 +14,7 @@ using namespace std;
 #define pii pair<int, int>
 #define fastio() ios::sync_with_stdio(0); cin.tie(0); cout.tie(0)
 #define YES cout << "Yes" << endl
-#define NO cout << "NO" << endl
+#define NO cout << "No" << endl
 #define YESNO(x) cout << ((x) ? "YES" : "NO") << endl
 #define debug(x) cerr << #x << " = " << (x) << endl;
 #define debugArr(arr) for (auto v : arr) cerr << v << " "; cerr << endl;
@@ -24,94 +24,63 @@ using namespace std;
 #define printMatrix(mat) for (auto r : mat) { printVec(r); }
 #define fp(i, a, b) for (int i = (a); i < (b); ++i)
 
-
-// 3 -> 011
-// 4 -> 100
-
-/*
-
-
-least significant bit (LSB):
-
-
-In order to get the binary experssion of a number we can use 2 simple math operations for it
-TO get the bit value in reverse order -> [ n % 2 ]
-to get the next bit we need to move the indicated to the right , which can be achieved by fixinng that indiacter in the one's digit and remove the last value everytime -> [ n / 2 ]
-
-
-// 3 -> 011
-
-take = 1 *
-n = 1
-take = 1 *
-n = 0
-
-11_ is 110, reverse it then '011'
-
-
-// 4 -> 100
-
-take = 0
-n = 2
-take = 0
-n = 1
-take = 1
-n = 0
-
-001, reverse it then '100'
-
-
-This two willgo till that n < 0 , so while the process to see through.
-*/
-string check(int n){
-    int reversed = 0;
-    int orginal=n;
-    while(n > 0){
-    reversed = reversed * 2 + (n % 2);
-    // int take= n % 2;
-    // debug(take);
-    n = n / 2;
-    //debug(n);
+bool rightone(string s,vector<int>& v){
+    //map<char,int> mp;
+    vector<int> make(26,0);
+    //for(auto c : v) mp[c]++;
+    // for(auto c : s){
+    //     if(mp[c]==0) return false;
+    //     mp[c]--;
+    // }
+    for(auto c : s)make[c-'a']++;
+    for (int i = 0; i < 26; i++)
+    {
+        if(make[i] > v[i]) return false;
     }
-    return (orginal==reversed)? "YES" : "NO";
+    
+    return true;
 }
 
 void solve() {
     int n;
     cin >> n;
-    if(n%2==0){
-        NO;
-    }else{
-        cout<<check(n)<<endl;
+    vector<pair<int,int>> freq;
+    for (int i = 0; i < n; i++)
+    {
+        int a,b;cin>>a>>b;
+        freq.pb({a,b});
     }
-    //cout<<check(n)<<endl;
-    // Your logic here
+    int m;cin>>m;
+    vector<string> v;
+    for (int i = 0; i < m; i++)
+    {
+        string s;cin>>s;
+        v.pb(s);
+    }
+    //vector<char> take;
+    vector<int> take(26,0);
+    for (int i = 0; i < freq.size(); i++)
+    {
+        for (int j = 0; j < v.size(); j++)
+        {
+            if(v[j].size()==freq[i].first && freq[i].second - 1 < v[j].size()){
+                //take.pb(v[j][freq[i].second-1]);
+                char x=v[j][freq[i].second-1];
+                take[x-'a']++;
+            }
+        }
+    }
+    //printVec(take);
+    for (int i = 0; i < m; i++)
+    {
+        if(rightone(v[i],take))YES;
+        else NO;
+    }
+    
+    
+
 }
-/*
 
-3 - > 011
-4 -> 10
-5 -> 101
-
-0
-1
-3
-5
-7
-9
-15
-17
-21
-27
-31
-33
-45
-51
-63
-65
-
-
-*/
 void test() {
     int t;
     cin >> t;
