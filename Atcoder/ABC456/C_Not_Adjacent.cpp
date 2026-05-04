@@ -24,7 +24,25 @@ using namespace std;
 #define printMatrix(mat) for (auto r : mat) { printVec(r); }
 #define fp(i, a, b) for (int i = (a); i < (b); ++i)
 
-void solve() {
+/*
+Problem Statement: 
+You are given a string S consisting of a, b, c.
+
+Find the number of non-empty substrings of 
+S in which no two adjacent characters are the same, modulo 998244353.
+
+Two substrings are considered distinct if they are taken from different positions, even if they are identical as strings.
+
+*/
+
+/*
+Initail Intution:
+
+I was blank actually, wasn't sure how to approch with the hidius contraint there. Thought of counting the the a,b,c then think about that later.
+But Naaaaaah.
+
+*/
+void inital_solve() {
     string s;cin>>s;
     int cnt_a=0;
     int cnt_b=0;
@@ -40,6 +58,28 @@ void solve() {
     debug(cnt_c);
 }
 
+/*
+Editorial Solution 1:
+
+
+
+*/
+
+void solve(){
+    string s;cin>>s;
+    int ans=0;
+    int start_index=0;
+    for (int i = 0; i < s.size(); i++)
+    {
+        if(i+1==s.size() || s[i]==s[i+1]){
+            ans+=(int) ((i-start_index+1) * (i-start_index+2))/2;
+            start_index = i + 1;
+        }
+    }
+    cout<<ans%998244353<<endl;
+    
+
+}
 void test() {
     int t;
     cin >> t;
