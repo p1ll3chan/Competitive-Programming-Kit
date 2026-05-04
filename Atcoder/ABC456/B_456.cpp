@@ -24,24 +24,30 @@ using namespace std;
 #define printMatrix(mat) for (auto r : mat) { printVec(r); }
 #define fp(i, a, b) for (int i = (a); i < (b); ++i)
 
-void solve1() {
-    /*
-    The most common approach that can be taken , since it is a predefined function
-    I have seen the same kind of question in in Leetcode
-    */
-    int n;
-    cin >> n;
-    vi v(n);
-    readVec(v, n);
-    prev_permutation(all(v));
-    printVec(v);
-    // Your logic here
-}
-
-void solve(){
-    int n;cin>>n;
-    vi v(n);
-    readVec(v,n);
+void solve() {
+    vii v(3,vi(6));
+    readMatrix(v,3,6);
+    double cnt=0;
+    for (int i = 0; i < 6; i++)
+    {
+        for (int j = 0; j < 6; j++)
+        {
+            for (int k = 0; k < 6; k++)
+            {
+                if((v[0][i]==4 && v[1][j]==5 && v[2][k]==6)
+                 ||(v[0][i]==6 && v[1][j]==5 && v[2][k]==4)
+                 ||(v[0][i]==4 && v[1][j]==6 && v[2][k]==5)
+                 ||(v[0][i]==5 && v[1][j]==4 && v[2][k]==6)
+                 ||(v[0][i]==6 && v[1][j]==4 && v[2][k]==5)
+                 ||(v[0][i]==5 && v[1][j]==6 && v[2][k]==4)){
+                    cnt++;
+                 }
+            }
+            }
+            
+        }
+        
+    cout<<fixed<<setprecision(10)<<cnt/216<<endl;
     
 }
 

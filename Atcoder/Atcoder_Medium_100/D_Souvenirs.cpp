@@ -73,6 +73,14 @@ void solve1() {
     // Your logic here
 }
 
+/*
+
+I thought of using this way , but don't know where to stop after greedy operation.
+
+
+
+*/
+
 void solve(){
     int n,m;
     cin >> n >> m;
@@ -92,7 +100,7 @@ void solve(){
             i++;
         }
     }
-    if(j<m) cout<<-1<<endl;
+    if(j<m) cout<<-1<<endl; // but i understood the process from this line, it makes sense. till the end of array size operation can end.
     else cout<<sum<<endl;
 }
 
