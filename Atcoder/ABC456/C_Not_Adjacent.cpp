@@ -275,11 +275,12 @@ void solve2(){
             segments.push_back(cur);
             cur = "";
         } else {
-            cur += c;
+            cur += c; // cur is a temporarly storing the char's until the if condition gets collide
+                      // later that curr will be updated in the segement for the final process.
         }
     }
 
-    if (!cur.empty()) segments.push_back(cur);
+    if (!cur.empty()) segments.push_back(cur); // To ensure we take the last char too, if missed, [This is default to do so.]
     // printVec(segments);
     // debug(cur);
     long long ans = 0;
