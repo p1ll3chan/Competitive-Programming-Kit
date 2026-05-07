@@ -24,6 +24,31 @@ using namespace std;
 #define printMatrix(mat) for (auto r : mat) { printVec(r); }
 #define fp(i, a, b) for (int i = (a); i < (b); ++i)
 
+/*
+Problem : 
+We were given the side length of a triangle A,B,C, and we are allowed to increment only 1 to each of the sides at a time.
+What is the minimum number of moves required so that A,B,C can be the side lengths of a non-degenerate triangle.
+
+Note: Non-degenrate triangle happens when a+b > c, b+c > a & a+c > b .
+*/
+
+/*
+Solution Discussion : 
+
+Clearly we need the number of moves to make that happen then why don't we observe the base condition here
+
+a + b > c .
+
+We can refram this as " a + b + moves > c". Since the difference between the arthmetic is the number of moves needed that itself
+is the minimum. 
+
+so,
+
+moves => c - (a + b) + 1
+
+so this is the final fromual to output.
+*/
+
 void solve() {
         vi v(3);
 

@@ -23,7 +23,27 @@ using namespace std;
 #define printVec(v) for (auto x : v) cout << x << " "; cout << endl;
 #define printMatrix(mat) for (auto r : mat) { printVec(r); }
 #define fp(i, a, b) for (int i = (a); i < (b); ++i)
+/*
+Problem  :
+There are a set of jar having candies and the player have X children with him
+[It is not clear whether they are his or not!!]
+He need to fidn the best jar that can give evenly divisble amount of candles
+and he will only choose the largest jar here.
 
+If there isn't one output 0 
+
+*/
+
+/*
+Solution:
+
+The question literraly gave the solution here
+
+Evenly divisiblee + largest one => Largest Divisible value out of the set
+
+use the max() here for each divisble check.
+
+*/
 void solve() {
         int N, X;
         cin >> N >> X;
