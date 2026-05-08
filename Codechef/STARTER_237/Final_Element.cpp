@@ -45,6 +45,10 @@ void solve() {
         cout << ans << endl;
 }
 
+void solve1(){
+    debug(5^5^5^5)
+}
+
 void test() {
     int t;
     cin >> t;
@@ -53,7 +57,7 @@ void test() {
 
 int32_t main() {
     fastio();
-    test();
-    //solve();
+    //test();
+    solve1();
     return 0;
 }
