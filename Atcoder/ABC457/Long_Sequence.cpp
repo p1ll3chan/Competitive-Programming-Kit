@@ -23,38 +23,60 @@ using namespace std;
 #define printVec(v) for (auto x : v) cout << x << " "; cout << endl;
 #define printMatrix(mat) for (auto r : mat) { printVec(r); }
 #define fp(i, a, b) for (int i = (a); i < (b); ++i)
-/*
-Points to note:
 
-XOR was a "parity over bits";
--> A bit becomes:
-
-    1 if count of 1s is odd
-    0 if count is even
-*/
 void solve() {
-        int N;
-        cin >> N;
-
-        vi A(N);
-
-        for (int i = 0; i < N; i++) {
-            cin >> A[i];
+    int n,m;cin>>n>>m;
+    vii arr(n);
+    vi make(n);
+    for (int i = 0; i < n; i++)
+    {
+        cin>>make[i];
+        
+        arr[i].resize(make[i]);
+        for (int j = 0; j < make[i]; j++)
+        {
+            cin>>arr[i][j];
         }
-        int ans = 0;
-        int n = N - 1;
-        for (int k = 0; k < N; k++) {
+        
+    }
 
-            if ((k & (n - k)) == 0) {
-                ans ^= A[k];
-            }
+    //vii ans;
+    // for (int i = 0; i < n; i++)
+    // {
+    //     int chk;cin>>chk;
+    //     vi box;
+    //     for (int k = 0; k < chk; k++)
+    //         {
+    //     for (int j = 0; j < arr[i].size(); j++)
+    //     {
+            
+    //             //box.pb(arr[i][j]);
+    //             cout<<arr[m]<<endl;
+    //         }
+            
+    //     }
+    //     ans.pb(box);
+    // }
+    //printMatrix(ans);
+
+
+    vi boxx(n);
+    for (int i = 0; i < n; i++) {
+        cin>>boxx[i];
+    }
+    for (int i = 0; i < n; i++) {
+
+        int total = make[i] * boxx[i];
+        if(m>total) {
+            m-=total;
+        }else{
+            int an =(m-1)%make[i];
+            cout<<arr[i][an]<<endl;
+            return;
         }
 
-        cout << ans << endl;
-}
+    }
 
-void solve1(){
-    debug(5^5^5^5)
 }
 
 void test() {
@@ -65,7 +87,7 @@ void test() {
 
 int32_t main() {
     fastio();
-    //test();
-    solve1();
+    // test();
+    solve();
     return 0;
 }
