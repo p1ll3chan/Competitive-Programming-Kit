@@ -66,11 +66,11 @@ void solve() {
     }
     for (int i = 0; i < n; i++) {
 
-        int total = make[i] * boxx[i];
+        int total = make[i] * boxx[i]; // we check the visual index view of where to catch our value in the big array
         if(m>total) {
-            m-=total;
+            m-=total; //redusing in each selected array, it is bigger than we need to check, then if it is under our catch take the value
         }else{
-            int an =(m-1)%make[i];
+            int an =(m-1)%make[i]; // use module to catch the array from the selected array, since we the value are repessting we catch the repeated order by means of module
             cout<<arr[i][an]<<endl;
             return;
         }
