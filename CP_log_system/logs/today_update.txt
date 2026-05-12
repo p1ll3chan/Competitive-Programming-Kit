@@ -3,12 +3,9 @@
 📅 12 May 2026
 ⏱ Hours: ___
 
-✅ Problems Solved: 2
+✅ Problems Solved: 1
 
-1. Completing_the_Training_Menu.cpp
-→ No final learning written.
-
-2. You have n as input, follow an operation will there are no value greater than 2 in the array.
-→ No final learning written.
+1. We are given the task of gereating a sequence for F(n)
+→ ------
 
 🚀 Git Push Completed
