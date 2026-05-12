@@ -42,7 +42,7 @@ os.chdir(ROOT)
 
 try:
     result = subprocess.check_output(
-        ["git", "show", "--pretty=format:", "--name-only", "HEAD", "--", "*.cpp"],
+        ["git", "show", "--pretty=format:", "--name-only", "HEAD"],
         text=True,
     )
 except subprocess.CalledProcessError:
@@ -50,9 +50,14 @@ except subprocess.CalledProcessError:
     result = ""
 
 files = [
-    f for f in result.splitlines()
-    if f.endswith(".cpp")
+    f.strip() for f in result.splitlines()
+    if f.strip().endswith(".cpp")
+    and "/logs/" not in f"/{f.strip()}"
+    and "__pycache__" not in f.strip()
+    and "/scripts/" not in f"/{f.strip()}"
 ]
+
+print("Detected cpp files:", files)
 
 
 def extract_section_block(content, label):
@@ -200,4 +205,3 @@ if clipboard_ok:
     print("Copied to clipboard.")
 else:
     print("Clipboard copy skipped.")
-
