@@ -16,6 +16,9 @@
 import os
 import re
 import subprocess
+import json
+import urllib.request
+import urllib.error
 from datetime import datetime
 
 ROOT = "/home/p1ll3chan/Documents/Code_2025/CP_Practice/Competitive-Programming-Kit"
@@ -33,6 +36,9 @@ SECTION_BOUNDARY_RE = re.compile(
     r"^\s*(?:(?:" + "|".join(re.escape(h) for h in HEADINGS) + r")\s*:|\*/)",
     re.MULTILINE,
 )
+OLLAMA_URL = "http://127.0.0.1:11434/api/generate"
+OLLAMA_MODEL = "qwen2.5-coder:7b"
+OLLAMA_TIMEOUT_SECONDS = 10
 
 os.chdir(ROOT)
 
@@ -105,6 +111,49 @@ def extract_final_learning(content):
 
     return "\n".join(line.rstrip() for line in lines).strip()
 
+
+def summarize_learning_with_ollama(learning_text):
+    if not learning_text:
+        return learning_text
+
+    prompt = (
+        "Rewrite this competitive programming learning into exactly one concise "
+        "WhatsApp-style sentence under 15 words. Keep technical meaning intact. "
+        "No bullet points. No quotes. No markdown.\n\n"
+        f"Learning: {learning_text}\n\n"
+        "Output only the sentence."
+    )
+
+    payload = {
+        "model": OLLAMA_MODEL,
+        "prompt": prompt,
+        "stream": False,
+    }
+
+    try:
+        req = urllib.request.Request(
+            OLLAMA_URL,
+            data=json.dumps(payload).encode("utf-8"),
+            headers={"Content-Type": "application/json"},
+            method="POST",
+        )
+        with urllib.request.urlopen(req, timeout=OLLAMA_TIMEOUT_SECONDS) as response:
+            data = json.loads(response.read().decode("utf-8"))
+
+        summary = (data.get("response") or "").strip()
+        summary = re.sub(r"[\r\n]+", " ", summary)
+        summary = summary.replace('"', "").replace("'", "")
+        summary = re.sub(r"^\s*[-*•]+\s*", "", summary)
+        summary = re.sub(r"\s+", " ", summary).strip()
+        words = summary.split()
+        if len(words) > 15:
+            summary = " ".join(words[:15]).rstrip(".,;:") + "."
+        if not summary or not re.search(r"[A-Za-z0-9]", summary):
+            return learning_text
+        return summary
+    except Exception:
+        return learning_text
+
 # --------------------------------------------------
 # EXTRACT DATA
 # --------------------------------------------------
@@ -133,8 +182,10 @@ for file in files:
         # -----------------------------
 
         learning = extract_final_learning(content) or "No final learning written."
+        summarized_learning = summarize_learning_with_ollama(learning)
+        print(f"LLM Summary: {summarized_learning}")
 
-        updates.append((problem, learning))
+        updates.append((problem, summarized_learning))
 
     except Exception as e:
         print(f"Error reading {file}: {e}")
