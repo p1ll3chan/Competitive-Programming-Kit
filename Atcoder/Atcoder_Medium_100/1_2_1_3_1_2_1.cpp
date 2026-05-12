@@ -39,7 +39,9 @@ My Intuition:
     Use Recurssive DP here but i caught up with the issue on how to store the sequence
 
 Approach 1:
-    Use Recurssive DP + Memoisation here
+    Use Recurssive DP
+
+
 
 Why Failed:
 
@@ -52,13 +54,36 @@ Final Learning:
 ------
 */
 
+vector<int> dp_rec(int n){
+    if(n==1) return {1};
+    vi prev=dp_rec(n-1);
+    vi ans;
+    for(auto x : prev) ans.pb(x);
+    ans.pb(n);
+    for(auto x : prev) ans.pb(x);
+    return ans;
+}
+
+map<int,vi> memo;
+
+vi dp_mom(int n){
+    if(n==1) return {1};
+    if(memo.count(n)) return memo[n];
+     
+    vi prev=dp_mom(n-1);
+    vi ans;
+    for(auto x : prev) ans.pb(x);
+    ans.pb(n);
+    for(auto x : prev) ans.pb(x);
+    return memo[n]=ans;
+}
+
 
 void solve() {
     int n;
     cin >> n;
-    vi v(n);
-    readVec(v, n);
-    // Your logic here
+    //printVec(dp_rec(n));
+    printVec(dp_mom(n));
 }
 
 void test() {

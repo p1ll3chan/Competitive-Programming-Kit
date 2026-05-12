@@ -66,6 +66,17 @@ files = [
 print("Detected cpp files:", files)
 
 
+def extract_structured_top_comment(content):
+    top_window = content[:8000]
+    for match in re.finditer(r"/\*(.*?)\*/", top_window, re.DOTALL):
+        block = match.group(1)
+        has_problem = re.search(r"^\s*Problem\s*:", block, re.MULTILINE)
+        has_learning = re.search(r"^\s*Final Learning\s*:", block, re.MULTILINE)
+        if has_problem or has_learning:
+            return block
+    return None
+
+
 def extract_section_block(content, label):
     match = re.search(
         rf"^\s*{re.escape(label)}\s*:\s*(.*)$",
@@ -170,18 +181,23 @@ for file in files:
     try:
         with open(full_path, "r", encoding="utf-8") as f:
             content = f.read()
+        structured_block = extract_structured_top_comment(content)
 
         # -----------------------------
         # PROBLEM
         # -----------------------------
 
-        problem = extract_problem(content) or os.path.basename(file)
+        problem = (
+            extract_problem(structured_block) if structured_block else None
+        ) or os.path.basename(file)
 
         # -----------------------------
         # FINAL LEARNING
         # -----------------------------
 
-        learning = extract_final_learning(content) or "No final learning written."
+        learning = (
+            extract_final_learning(structured_block) if structured_block else None
+        ) or "No final learning written."
         summarized_learning = summarize_learning_with_ollama(learning)
         print(f"LLM Summary: {summarized_learning}")
 
