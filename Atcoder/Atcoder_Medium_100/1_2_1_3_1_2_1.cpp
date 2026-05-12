@@ -40,17 +40,50 @@ My Intuition:
 
 Approach 1:
     Use Recurssive DP
+    
+    we can create a array builder using recurssion, 
 
+    our formula is ,
 
+    DP[n] = solve(n-1) + n + solve(n-1)
+
+    so we can create the recurssive array and process the subproblem within a new array 'ans'.
+
+    we use forloop for each subproblem like the line ,
+
+    vi prev=dp_rec(n-1);
+    vi ans;
+    for(auto x : prev) ans.pb(x);
+    ans.pb(n);
+    for(auto x : prev) ans.pb(x);
+
+    is just like,
+
+    smaller answer already exists
+    copy it
+    add n
+    copy it again
 
 Why Failed:
 
 Approach 2:
+    DP Recurssion + Memoisation
+
+    we used map<int,vi> and store the already counted value to the array and rest if same as 
+    the ordinary recurssion.
+
+    we call the globally called 'map' by modifing/updating it with the local array 'ans'
 
 Example Process:
 
-Final Learning:
+Final Learning: 
+    How to use DP calls in a data structure manner
 
+    Solving the smallest prob with array building and assigning it the construction of final array
+    according to the formula
+
+    Learned DP Recurssion + Memoisation in application level
+    
 ------
 */
 
@@ -61,7 +94,7 @@ vector<int> dp_rec(int n){
     for(auto x : prev) ans.pb(x);
     ans.pb(n);
     for(auto x : prev) ans.pb(x);
-    return ans;
+    return ans; // we could just call it as it is,
 }
 
 map<int,vi> memo;

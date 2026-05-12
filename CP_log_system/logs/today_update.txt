@@ -3,9 +3,6 @@
 📅 12 May 2026
 ⏱ Hours: ___
 
-✅ Problems Solved: 1
-
-1. We are given the task of gereating a sequence for F(n)
-→ ------
+✅ Problems Solved: 0
 
 🚀 Git Push Completed
