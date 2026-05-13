@@ -214,12 +214,14 @@ now = datetime.now()
 
 date_string = now.strftime("%d %b %Y")
 
-message = f"""🔥 CP Daily Update
+message = f"""
+Namah Shivaya Sir,
+CP Daily Update
 
-📅 {date_string}
-⏱ Hours: ___
+{date_string}
+Hours: ___
 
-✅ Problems Solved: {len(updates)}
+Problems Solved: {len(updates)}
 
 """
 
@@ -228,7 +230,7 @@ for i, (problem, learning) in enumerate(updates, start=1):
     message += f"{i}. {problem}\n"
     message += f"→ {learning}\n\n"
 
-message += "🚀 Git Push Completed"
+message += ""
 
 # --------------------------------------------------
 # SAVE TO FILE

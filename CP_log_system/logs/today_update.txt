@@ -3,6 +3,17 @@
 📅 12 May 2026
 ⏱ Hours: ___
 
-✅ Problems Solved: 0
+✅ Problems Solved: 1
+
+1. We are given the task of gereating a sequence for F(n)
+→ How to use DP calls in a data structure manner
+
+
+    Solving the smallest prob with array building and assigning it the construction of final array
+    according to the formula
+
+    Learned DP Recurssion + Memoisation in application level
+
+------
 
 🚀 Git Push Completed
