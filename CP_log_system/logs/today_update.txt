@@ -1,19 +1,18 @@
-🔥 CP Daily Update
 
-📅 12 May 2026
-⏱ Hours: ___
+Namah Shivaya Sir,
+CP Daily Update
 
-✅ Problems Solved: 1
+13 May 2026
+Hours: ___
 
-1. We are given the task of gereating a sequence for F(n)
-→ How to use DP calls in a data structure manner
+Problems Solved: 2
 
+1. we are given a get of number are we need to count the number that are L<=x<=R, which are given
+→ ------
 
-    Solving the smallest prob with array building and assigning it the construction of final array
-    according to the formula
+2. You are given a set of nuber in an array and you are given the task to find abs(subarraySum_max - subarraySum_min)
+→ Preprocessed Prefix Sum
 
-    Learned DP Recurssion + Memoisation in application level
 
 ------
 
-🚀 Git Push Completed
