@@ -2,17 +2,11 @@
 Namah Shivaya Sir,
 CP Daily Update
 
-13 May 2026
+14 May 2026
 Hours: ___
 
-Problems Solved: 2
+Problems Solved: 1
 
-1. we are given a get of number are we need to count the number that are L<=x<=R, which are given
+1. My Intuition:
 → ------
-
-2. You are given a set of nuber in an array and you are given the task to find abs(subarraySum_max - subarraySum_min)
-→ Preprocessed Prefix Sum
-
-
-------
 
