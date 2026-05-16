@@ -28,34 +28,30 @@ using namespace std;
 /*
 ----
 Problem:
-we are given a get of number are we need to count the number that are L<=x<=R, which are given
 
 My Intuition:
-    For each input from loop n, check and count
 
-Approach 1: Accepted
+Approach 1:
 
-Why Failed: Nil
+Why Failed:
 
-Approach 2: 
+Approach 2:
 
 Example Process:
 
 Final Learning:
-    Iterative Counting -> Easy
 
 ------
 */
 
 void solve() {
-    int N,L,R;cin>>N>>L>>R;
-    int cnt=0;
-    fp(i,0,N){
-        int X;cin>>X;
-        if(X>=L && X<=R) cnt++;
+    string s;cin>>s;
+    int n;cin>>n;
+    for (int i = n; i < s.size()-n; i++)
+    {
+        cout<<s[i];
     }
-    cout<<cnt<<endl;
-    // Your logic here
+    
 }
 
 void test() {

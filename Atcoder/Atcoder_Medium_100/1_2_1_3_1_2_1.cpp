@@ -28,7 +28,7 @@ using namespace std;
 /*
 ----
 Problem:
-    We are given the task of gereating a sequence for F(n)
+    We are given the task of generating a sequence for F(n) in  concatination order of F(n-1) + n + F(n-1)
     the operation calls like
     * F[1] = {1}
     * F[n] = generate the sequence of concatenating Sn−1, n, Sn−1 in this order

@@ -28,39 +28,70 @@ using namespace std;
 /*
 ----
 Problem:
-
-My Intuition:
-
-There are N members in a group and we need to assign each member need to be in a team.
-inital there are no teams.
-In M operation,
-We take 2 members, Ui and Vi then merge them one by one with their previous team and each team formation count 
-respective flag count.
+There are N members in a group and we need to assign each member need to be in a team, inital there are no teams.
+In M operation, We take 2 members, Ui and Vi then merge them one by one with their previous team and each team formation count respective flag count.
 
 Find the distinct number of flag after M operation.
 
-Approach 1:
-
+My Intuition:
     DFS was my first thought then found there is no queries about the components or connection nodes.
     Using set/vector upon each numbers and team will be very costly
+
+Approach 1:
 
 Why Failed:
     Too complexity mess under my idea.
 
 Approach 2:
-    DSU [Union - Find] + Flag count 
+    DSU [(Union - Find) x metadata_process] + Flag size count 
 
-    
+    Operation:
+
+        merge(team(U), team(V))
+
+        Then:
+
+        resulting team gets color C
+
+        So after every operation:
+
+        two teams may disappear
+        one new team appears
+        old colors disappear
+        new color appears
+
+Approch 3:
+    https://atcoder.jp/contests/awc0068/editorial/20215
 
 Example Process:
 
+Merge DSU
+
+4 3 
+1 2 10 
+3 4 20 
+2 3 10
+
+Suppose we attach root 3 under root 1.
+
+ASCII:
+
+    1
+   / \
+  2   3
+       \
+        4
+
+Now ALL belong to one component.
+
 Final Learning:
+    DSU basics [(Union - Find) x metadata_process] + Flag size count 
 
 ------
 */
 // DSU Templete
-vector<int> parent_, sz, color;
-map<int,int> freq;
+vector<int> parent_, sz, color; // Why color ? -> For every TEAM (component)
+map<int,int> freq; //how many teams currently have color c
 
 int find(int x){
     if(parent_[x] == x)
@@ -69,11 +100,11 @@ int find(int x){
     return parent_[x] = find(parent_[x]);
 }
 
-void add_color(int c){
+void add_color(int c){  //To add color after the update team
     freq[c]++;
 }
 
-void remove_color(int c){
+void remove_color(int c){ // To Remove color after the update team
     freq[c]--;
 
     if(freq[c] == 0)
@@ -103,6 +134,19 @@ void solve() {
         int rv = find(v);
 
         // already same team
+        /*
+        CASE 1 — Already same team
+                ru == rv
+
+                No merge happens.
+
+                But color changes.
+
+                ->
+                    remove old color
+                    set new color
+                    add new color
+        */
         if(ru == rv){
 
             if(color[ru] != -1)
@@ -114,6 +158,13 @@ void solve() {
         }
 
         // different teams
+        /*
+        CASE 2 — Different teams
+
+                Now two old teams disappear.
+
+                So their old colors disappear too.
+        */
         else{
 
             if(color[ru] != -1)
@@ -122,13 +173,14 @@ void solve() {
             if(color[rv] != -1)
                 remove_color(color[rv]);
 
-            // union by size
+            // union by size        //Merge DSU
+                                    //Union by size:
             if(sz[ru] < sz[rv])
                 swap(ru, rv);
 
             parent_[rv] = ru;
             sz[ru] += sz[rv];
-
+                                    //Set new color
             color[ru] = c;
 
             add_color(c);
