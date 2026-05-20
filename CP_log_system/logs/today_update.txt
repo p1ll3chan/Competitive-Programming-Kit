@@ -5,29 +5,17 @@ CP Daily Update
 17 May 2026
 Hours: ___
 
-Problems Solved: 7
+Problems Solved: 4
 
 1. My Intuition:
 → ------
 
-2. We will input an initail value to the array. In q queries we are adding 2 values and each time we need to output the medium on each update.
+2. My Intuition:
 → ------
 
 3. My Intuition:
-→ ------
+→ Master algorithms, data structures, and coding in hours with intensive online courses.
 
 4. My Intuition:
-→ ------
-
-5. we are given a get of number are we need to count the number that are L<=x<=R, which are given
-→ Iterative Counting -> Easy
-
-
-------
-
-6. There are N members in a group and we need to assign each member need to be in a team, inital there are no teams.
-→ DSU with Union-Find, metadata process, flag size count, competitive programming essentials.
-
-7. We are given the task of generating a sequence for F(n) in  concatination order of F(n-1) + n + F(n-1)
-→ DP on arrays: Build, assign values, solve using recursion & memoization for efficiency
+→ Competitive programming mastery through coding challenges and practice sessions.
 

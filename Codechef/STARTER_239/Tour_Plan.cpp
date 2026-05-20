@@ -27,12 +27,9 @@ using namespace std;
 
 /*
 ----
-Problem: 
-You are given a string S, take the count of subtring with 'C' in the middle.
+Problem:
 
 My Intuition:
-    The possible cout if substring with C in the middle is the min(left -> C, C <- Right)
-    and we can the extra count of 'C' in abvance due to singularity.
 
 Approach 1:
 
@@ -43,23 +40,23 @@ Approach 2:
 Example Process:
 
 Final Learning:
-    Math + Substring Trick
 
 ------
 */
 
 void solve() {
-    string s;cin>>s;
-    int mix=0;
-    for (int i = 0; i < s.size(); i++)
-    {
-        
-        if(s[i]=='C'){
-            //mix++;
-            mix+=min(i,(int)s.size()-i-1)+1;
-        }
+   int X, Y, Z;
+    cin >> X >> Y >> Z;
+
+    int cost;
+
+    if (Z <= 50) {
+        cost = X;
+    } else {
+        cost = X + (Z - 50) * Y;
     }
-    cout<<mix<<endl;
+
+    cout << cost;
 }
 
 void test() {

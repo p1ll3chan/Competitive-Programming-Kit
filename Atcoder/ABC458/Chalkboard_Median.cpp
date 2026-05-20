@@ -48,6 +48,8 @@ Approach 2:
 Example Process:
 
 Final Learning:
+Two Heap Method {Max Heap + Min Heap size mantained segment trick}
+
 
 ------
 */

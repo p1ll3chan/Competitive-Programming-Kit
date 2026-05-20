@@ -16,7 +16,7 @@ using namespace std;
 #define fastio() ios::sync_with_stdio(0); cin.tie(0); cout.tie(0)
 #define YES cout << "Yes" << endl
 #define NO cout << "No" << endl
-#define YESNO(x) cout << ((x) ? "YES" : "NO") << endl
+#define YESNO(x) cout << ((x) ? "Yes" : "No") << endl
 #define debug(x) cerr << #x << " = " << (x) << endl;
 #define debugArr(arr) for (auto v : arr) cerr << v << " "; cerr << endl;
 #define readVec(v, n) for (int i = 0; i < n; ++i) cin >> v[i];
@@ -27,12 +27,9 @@ using namespace std;
 
 /*
 ----
-Problem: 
-You are given a string S, take the count of subtring with 'C' in the middle.
+Problem:
 
 My Intuition:
-    The possible cout if substring with C in the middle is the min(left -> C, C <- Right)
-    and we can the extra count of 'C' in abvance due to singularity.
 
 Approach 1:
 
@@ -43,23 +40,33 @@ Approach 2:
 Example Process:
 
 Final Learning:
-    Math + Substring Trick
 
 ------
 */
 
 void solve() {
-    string s;cin>>s;
-    int mix=0;
-    for (int i = 0; i < s.size(); i++)
-    {
-        
-        if(s[i]=='C'){
-            //mix++;
-            mix+=min(i,(int)s.size()-i-1)+1;
+    int N;
+        cin >> N;
+
+        vector<int> A(N);
+
+        for (int i = 0; i < N; i++) {
+            cin >> A[i];
         }
-    }
-    cout<<mix<<endl;
+
+        int target = A[0] + A[N - 1];
+
+        bool ok = true;
+
+        for (int i = 0; i < N / 2; i++) {
+
+            if (A[i] + A[N - 1 - i] != target) {
+                ok = false;
+                break;
+            }
+        }
+
+        YESNO(ok);
 }
 
 void test() {
@@ -70,7 +77,7 @@ void test() {
 
 int32_t main() {
     fastio();
-    // test();
-    solve();
+    test();
+    //solve();
     return 0;
 }

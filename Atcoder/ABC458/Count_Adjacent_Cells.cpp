@@ -28,10 +28,18 @@ using namespace std;
 /*
 ----
 Problem:
+    Make a N x M square where each cell should count how many immediate neighbors it has.
 
 My Intuition:
+    We know by default there 4 neighbors and the only place where that count get reduce is the side and the corners to 3 and 2 respectively
 
 Approach 1:
+    Create a nested matrix loop and make 4 as the default cell notations.
+    we know common thing about the edges is that either i or j is same across the dimension
+    
+    and for corners i and n,m are related by index.
+
+    So just output the 4 condtion by reducing the edges by 1 and corner by 2, in each opeartion
 
 Why Failed:
 
@@ -40,6 +48,7 @@ Approach 2:
 Example Process:
 
 Final Learning:
+    Output Generation on implementation Trick by index
 
 ------
 */

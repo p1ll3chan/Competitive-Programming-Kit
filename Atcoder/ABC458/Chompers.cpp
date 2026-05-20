@@ -28,7 +28,7 @@ using namespace std;
 /*
 ----
 Problem:
-
+ Output the final string after remove the N character from both left and right side of the original string
 My Intuition:
 
 Approach 1:
@@ -40,6 +40,7 @@ Approach 2:
 Example Process:
 
 Final Learning:
+    Loop catcher - O(N)
 
 ------
 */
