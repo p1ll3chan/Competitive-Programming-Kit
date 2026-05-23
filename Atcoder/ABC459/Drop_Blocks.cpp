@@ -16,7 +16,7 @@ using namespace std;
 #define fastio() ios::sync_with_stdio(0); cin.tie(0); cout.tie(0)
 #define YES cout << "Yes" << endl
 #define NO cout << "No" << endl
-#define YESNO(x) cout << ((x) ? "Yes" : "No") << endl
+#define YESNO(x) cout << ((x) ? "YES" : "NO") << endl
 #define debug(x) cerr << #x << " = " << (x) << endl;
 #define debugArr(arr) for (auto v : arr) cerr << v << " "; cerr << endl;
 #define readVec(v, n) for (int i = 0; i < n; ++i) cin >> v[i];
@@ -45,28 +45,38 @@ Final Learning:
 */
 
 void solve() {
-    int N;
-        cin >> N;
-
-        vi A(N);
-
-        for (int i = 0; i < N; i++) {
-            cin >> A[i];
+    int n,q;cin>>n>>q;
+    
+    vi v(n,0);
+    multiset<int> ms(all(v));
+    int dec=0;
+    while(q--)
+    {
+        
+        int x;cin>>x;
+        if(x==1){
+            int a;cin>>a;a--;
+            ms.erase(ms.find(v[a]));
+            v[a]++;
+            ms.insert(v[a]);
+            if(*ms.begin() > dec) dec++;
         }
-
-        int target = A[0] + A[N - 1];
-
-        bool ok = true;
-
-        for (int i = 0; i < N / 2; i++) {
-
-            if (A[i] + A[N - 1 - i] != target) {
-                ok = false;
-                break;
+        
+        else{
+            int b;cin>>b;
+            int cnt=0;
+            for (int i = 0; i < n; i++)
+            {
+                if(v[i]>=dec+b){
+                    cnt++;
+                }
             }
+            
+            //
+            cout<<cnt<<endl;
         }
-
-        YESNO(ok);
+    }
+    
 }
 
 void test() {
@@ -77,7 +87,7 @@ void test() {
 
 int32_t main() {
     fastio();
-    test();
-    //solve();
+    // test();
+    solve();
     return 0;
 }

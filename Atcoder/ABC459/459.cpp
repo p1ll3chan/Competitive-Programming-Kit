@@ -16,7 +16,7 @@ using namespace std;
 #define fastio() ios::sync_with_stdio(0); cin.tie(0); cout.tie(0)
 #define YES cout << "Yes" << endl
 #define NO cout << "No" << endl
-#define YESNO(x) cout << ((x) ? "Yes" : "No") << endl
+#define YESNO(x) cout << ((x) ? "YES" : "NO") << endl
 #define debug(x) cerr << #x << " = " << (x) << endl;
 #define debugArr(arr) for (auto v : arr) cerr << v << " "; cerr << endl;
 #define readVec(v, n) for (int i = 0; i < n; ++i) cin >> v[i];
@@ -45,28 +45,21 @@ Final Learning:
 */
 
 void solve() {
-    int N;
-        cin >> N;
-
-        vi A(N);
-
-        for (int i = 0; i < N; i++) {
-            cin >> A[i];
-        }
-
-        int target = A[0] + A[N - 1];
-
-        bool ok = true;
-
-        for (int i = 0; i < N / 2; i++) {
-
-            if (A[i] + A[N - 1 - i] != target) {
-                ok = false;
-                break;
-            }
-        }
-
-        YESNO(ok);
+    int n;
+    cin >> n;
+    for (int i = 0; i < n; i++)
+    {
+        string s;cin>>s;
+        if(s[0]=='a' || s[0]=='b' || s[0]=='c') cout << 2;
+        if(s[0]=='d' || s[0]=='e' || s[0]=='f') cout << 3;
+        if(s[0]=='g' || s[0]=='h' || s[0]=='i') cout << 4;
+        if(s[0]=='j' || s[0]=='k' || s[0]=='l') cout << 5;
+        if(s[0]=='m' || s[0]=='n' || s[0]=='o') cout << 6;
+        if(s[0]=='p' || s[0]=='q' || s[0]=='r' || s[0]=='s') cout << 7;
+        if(s[0]=='t' || s[0]=='u' || s[0]=='v') cout << 8;
+        if(s[0]=='w' || s[0]=='x' || s[0]=='y' || s[0]=='z') cout << 9;
+    }
+    
 }
 
 void test() {
@@ -77,7 +70,7 @@ void test() {
 
 int32_t main() {
     fastio();
-    test();
-    //solve();
+    // test();
+    solve();
     return 0;
 }

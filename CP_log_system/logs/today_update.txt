@@ -2,20 +2,45 @@
 Namah Shivaya Sir,
 CP Daily Update
 
-17 May 2026
+20 May 2026
 Hours: ___
 
-Problems Solved: 4
+Problems Solved: 8
 
-1. My Intuition:
-→ ------
+1. You are given a string S, take the count of subtring with 'C' in the middle.
+→ Math + Substring Trick
 
-2. My Intuition:
-→ ------
 
-3. My Intuition:
-→ Master algorithms, data structures, and coding in hours with intensive online courses.
+------
 
-4. My Intuition:
-→ Competitive programming mastery through coding challenges and practice sessions.
+2. We will input an initail value to the array. In q queries we are adding 2 values and each time we need to output the medium on each update.
+→ Two Heap Method {Max Heap + Min Heap size mantained segment trick}
+
+
+
+------
+
+3. Output the final string after remove the N character from both left and right side of the original string
+→ Loop catcher - O(N)
+
+
+------
+
+4. Make a N x M square where each cell should count how many immediate neighbors it has.
+→ Output Generation on implementation Trick by index
+
+
+------
+
+5. My Intuition:
+→ Practice coding challenges to improve your skills in competitive programming.
+
+6. My Intuition:
+→ Cracking coding interviews requires consistent practice and mastering algorithms.
+
+7. My Intuition:
+→ Master algorithms, data structures, and coding in minutes for competitive programming success.
+
+8. My Intuition:
+→ Master algorithms and data structures for coding contests.
 

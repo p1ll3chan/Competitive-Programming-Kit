@@ -16,7 +16,7 @@ using namespace std;
 #define fastio() ios::sync_with_stdio(0); cin.tie(0); cout.tie(0)
 #define YES cout << "Yes" << endl
 #define NO cout << "No" << endl
-#define YESNO(x) cout << ((x) ? "Yes" : "No") << endl
+#define YESNO(x) cout << ((x) ? "YES" : "NO") << endl
 #define debug(x) cerr << #x << " = " << (x) << endl;
 #define debugArr(arr) for (auto v : arr) cerr << v << " "; cerr << endl;
 #define readVec(v, n) for (int i = 0; i < n; ++i) cin >> v[i];
@@ -45,29 +45,13 @@ Final Learning:
 */
 
 void solve() {
-    int N;
-        cin >> N;
-
-        vi A(N);
-
-        for (int i = 0; i < N; i++) {
-            cin >> A[i];
-        }
-
-        int target = A[0] + A[N - 1];
-
-        bool ok = true;
-
-        for (int i = 0; i < N / 2; i++) {
-
-            if (A[i] + A[N - 1 - i] != target) {
-                ok = false;
-                break;
-            }
-        }
-
-        YESNO(ok);
+    int n;
+    cin >> n;
+    string s="HelloWorld";
+    s.erase(n - 1, 1);
+    cout<<s<<endl;
 }
+    
 
 void test() {
     int t;
@@ -77,7 +61,7 @@ void test() {
 
 int32_t main() {
     fastio();
-    test();
-    //solve();
+    // test();
+    solve();
     return 0;
 }
