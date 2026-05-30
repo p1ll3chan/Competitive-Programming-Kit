@@ -2,26 +2,11 @@
 Namah Shivaya Sir,
 CP Daily Update
 
-24 May 2026
+25 May 2026
 Hours: ___
 
-Problems Solved: 6
+Problems Solved: 1
 
-1. My Intuition:
+1. We are give the task to perfore 2 operation under q queries in an array of size n
 → ------
-
-2. Adjacent_Distinct_String.cpp
-→ No final learning written.
-
-3. My Intuition:
-→ ------
-
-4. My Intuition:
-→ ------
-
-5. My Intuition:
-→ ------
-
-6. test_case_generater.cpp
-→ No final output provided in learning summary.
 
