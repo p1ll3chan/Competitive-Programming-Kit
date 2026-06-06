@@ -39,6 +39,7 @@ It contains:
   - Pairs counter
   - Utility macros for CP
 
+There is more with the package only if you want it though.........
 ---
 
 ## 📦 How to Use
