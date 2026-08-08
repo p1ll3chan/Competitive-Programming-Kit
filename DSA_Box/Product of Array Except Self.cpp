@@ -46,9 +46,15 @@ using namespace std;
 ----
 Problem:
 
-My Intuition:
+My Intuition:   The only solution in get is a O(n^2) one,
+                Do a nested loop, where for each iteration we take the total_production except the when
+                Iteration index [i] and Loop index [j] is might which is none other than the value 
+                said in the condition. [We skip the process].
 
-Approach 1:
+Approach 1:   
+            The key idea: each prefix/suffix array deliberately excludes the current index, because the final answer for index i is:
+
+            answer[i] = leftPref[i] * rightPref[i];
 
 Why Failed:
 
@@ -73,12 +79,12 @@ void solve() {
 
     rightPref[0]=1;
     rep(i,1,n){
-        rightPref[i]=rightPref[i-1]*v[i-1];
+        rightPref[i]=rightPref[i-1]*v[i-1]; // We're storing the product after i, so we include the next element, not the current one.
     }
 
     leftPref[n-1]=1;
     rrep(i,n-2,0){
-        leftPref[i]=leftPref[i+1]*v[i+1];
+        leftPref[i]=leftPref[i+1]*v[i+1]; // To compute the product before index i, take the product before i-1 and multiply by the previous element
     }
     vi ans(n);
     rep(i,0,n){
