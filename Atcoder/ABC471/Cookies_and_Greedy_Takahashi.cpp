@@ -71,13 +71,21 @@ void solve1() {
 void solve() {
     int n;
     cin >> n;
-    vi v(n);
-    readVec(v,n);
-    sort(all(v));
-    int a=abs(v[0]),b=abs(v[n-1]);
-
-    if((a>0 && b<0)||(a<0 && b>0)) cout<<2*a+b<<endl;
-    else cout<<b<<endl;
+    vi v;
+    for (int i = 0; i < n; i++)
+    {
+        int x;cin>>x;
+        v.pb(x);
+    }
+    int sum=v[0];
+    // for (int i = 0; i < n-1; i++)
+    // {
+        int a=abs(v[0]),b=abs(v[]);
+        if((a>0 && b<0) || (a<0 && b>0)) sum+=((2*a)+b);
+        else sum+=a+b;
+    //}
+    
+    cout<<sum<<endl;
     // Your logic here
 }
 

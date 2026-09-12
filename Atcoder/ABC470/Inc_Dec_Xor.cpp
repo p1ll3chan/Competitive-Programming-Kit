@@ -28,6 +28,10 @@ using namespace std;
 /*
 ----
 Problem:
+We are given an array A from 1 to N with value intially 0,
+For each Queries;
+    if 1 x -> 
+
 
 My Intuition:
 
@@ -45,38 +49,11 @@ Final Learning:
 */
 
 void solve() {
-    int n, m;cin>>n>>m;
-
-    vi v(n,0);
-
-    vi freq(m + 2, 0);
-    freq[0] = n;
-    int xr = 0;
-    for (int q = 0; q < m; q++) {
-        int x;cin >> x;
-        if (x==1) {
-            int a;cin >> a;--a;
-            xr^=v[a];
-            freq[v[a]]--;
-            v[a]++;
-            freq[v[a]]++;
-            xr^=v[a];
-        }
-        else {
-            xr=0;
-            for(int x = 1; x <= m; x++) {
-                if (freq[x]%2)
-                    xr^=(x-1);
-            }
-            for(int x = 1; x <= m; x++)
-                freq[x - 1] = freq[x];
-            freq[m]=0;
-            freq[0]+=freq[0];
-            for (int i = 0; i < n; i++)
-                v[i]=max(0LL,v[i] - 1);
-        }
-        cout <<xr<< endl;
-    }
+    int n;
+    cin >> n;
+    vi v(n);
+    readVec(v, n);
+    // Your logic here
 }
 
 void test() {
