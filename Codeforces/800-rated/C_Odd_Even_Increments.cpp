@@ -22,3 +22,31 @@ int main(){
     return 0;
 
 }
+
+/*
+
+
+Observation :
+The YES Statement idea; [Too Complex]
+
+if x is Even ; x++ => Odd
+and visa versa
+
+if all value in even index is Even and odd index is Even -> OK
+
+if all value in even index is Odd and odd index is Odd
+-> OK
+
+if all value in even index is Even and odd index is Odd
+-> OK
+
+if all value in even index is Odd and odd index is Even
+-> OK
+
+The No Statment Idea : [Easier]
+
+If V[i] and V[i+2] are having Opposite Parity -> No
+Else OK
+
+Bool Check  [V[i]%2 != V[i+2]%2] Yes/No 
+*/
