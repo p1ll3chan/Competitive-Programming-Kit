@@ -30,7 +30,7 @@ Problem:
 
 My Intuition:
 
-Approach 1:
+Approach 1: Greedy + Prefix Sum + Two pointer [S->L->R && S->R->L]
 
 Why Failed:
 
