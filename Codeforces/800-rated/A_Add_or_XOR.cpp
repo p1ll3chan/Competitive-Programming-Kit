@@ -13,9 +13,9 @@ int main(){
             
                 int d=B-A;
                 if(A%2==0){
-                    ans=((d+1)/2)*min(X,Y) +(d/2)*X;
+                    ans=((d+1)/2)*min(X,Y) +(d/2)*X; // The occeriment order is E+O+E+O+E
                 }else{
-                    ans=(d/2)*min(X,Y) + ((d+1)/2)*X;
+                    ans=(d/2)*min(X,Y) + ((d+1)/2)*X; // The occeriment order is O+E+O+E+O
                 }
             
         }else{ // done 1

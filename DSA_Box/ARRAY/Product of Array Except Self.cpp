@@ -61,6 +61,9 @@ Why Failed:
 Approach 2:
 
 Example Process:
+prefix[i] is defined to cover indices 0..i-1 and suffix[i] to cover indices i+1..n-1. Neither includes nums[i], and 
+together they cover every other index exactly once. Their product is therefore the product of all elements except nums[i]. 
+The boundary values prefix[0] = 1 and suffix[n-1] = 1 represent an empty range, which correctly contributes a factor of 1.
 
 Final Learning:
 

@@ -51,14 +51,19 @@ void solve() {
     readVec(v, n);
     vector<int> ans;
     if(n%2==0){
-        for (int i = 0; i < n-1; i+=2)
+        ans.push_back(max(v[0],v[1]));
+        for (int i = 2; i < n-1; i+=2)
         {
-            ans.push_back(max(v[i],v[i+1]));
+            if(v[i-1]==ans[ans.size()-1]) ans.push_back(v[i+1]);
+            else ans.push_back(max(v[i],v[i+1]));
         }
+        
     }else{
-        for (int i = 0; i < n-2; i+=2)
+        ans.push_back(max(v[0],v[1]));
+        for (int i = 2; i < n-2; i+=2)
         {
-            ans.push_back(max(v[i],v[i+1]));
+            if(v[i-1]==ans[ans.size()-1]) ans.push_back(v[i+1]);
+            else ans.push_back(max(v[i],v[i+1]));
         }
         if(v[n-3] > v[n-2]){
             ans.push_back(v[n-3]);

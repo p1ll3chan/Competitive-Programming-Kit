@@ -3,7 +3,7 @@ using namespace std;
 
 class Solution{
     public:
-    int LCS(vector<int>& V){
+    int LCS_BF(vector<int>& V){
         sort(V.begin(),V.end());
         int max_val=0;
         int cnt=0;
@@ -16,6 +16,11 @@ class Solution{
             max_val=max(max_val,cnt);
         }
         return max_val;
+    }
+
+    int LDC_HM(vector<int> V){
+        unordered_set<int> s(V.begin();V.end());
+        
     }
 };
 
@@ -31,7 +36,7 @@ int main(){
     
 
     Solution MySol;
-    int ans=MySol.LCS(v);
+    int ans=MySol.LCS_BF(v);
 
     cout<<ans+1<<endl;
 
