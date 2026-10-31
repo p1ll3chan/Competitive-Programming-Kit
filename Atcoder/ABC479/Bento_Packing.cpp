@@ -89,6 +89,7 @@ void solve() {
     }
     
     int ans=0;
+    //2^N Chances
     for (int x = 0; x < (1LL<<N); x++)
     {
         int Val=0,Vol=0;
