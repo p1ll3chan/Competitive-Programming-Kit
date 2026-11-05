@@ -49,24 +49,23 @@ void solve() {
     cin >> n;
     vi v(n);
     readVec(v, n);
-    vector<int> first(2, -2);
+    vector<int> first(2, -2); // {ON,ON} -> Switch { []|[] }
 
-    first[0] = -1;
-
+    first[0] = -1; // {OFF,ON} -> Switch { [0]|[1] }
     int parity = 0;
     int ans = 0;
 
     for (int i = 0; i < n; i++) {
-        parity ^= (v[i] % 2 != 0);
+        parity ^= (v[i] % 2 != 0); // If Odd -> 1 && Even -> 0, XOR Operator act as "Swtich-to-Flip"
 
-        if (first[parity] != -2) {
-            ans = max(ans, i - first[parity]);
+        if (first[parity] != -2) { //Flipped switch is checked
+            ans = max(ans, i - first[parity]); //max(Difference btw First flip and the curr flip occured)
         } 
         else {
-            first[parity] = i;
+            first[parity] = i; //indexed by the parity state (0 = OFF, 1 = ON),
+                                // and i is the position in the array where you first arrived at that state
         }
     }
-
     cout << ans << endl;
 }
 
