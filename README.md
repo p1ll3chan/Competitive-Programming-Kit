@@ -1,6 +1,6 @@
 # 🏆 Competitive Programming Kit
 
-A personal collection of **coding templates**, **utility functions**, and **algorithms** crafted by **p1ll3chan_198** to speed up problem-solving in competitive programming.  
+A personal collection of **coding templates**, **utility functions**, and **algorithms** crafted by **p1ll3chan** to speed up problem-solving in competitive programming.  
 Optimized for **Codeforces**, **CodeChef**, **AtCoder**, and beyond 🚀
 
 ---
