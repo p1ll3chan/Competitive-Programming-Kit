@@ -102,7 +102,6 @@ void solve() {
             if (grid[i][j] == '1') {
                 minRow = min(minRow, i);
                 maxRow = max(maxRow, i);
-
                 minCol = min(minCol, j);
                 maxCol = max(maxCol, j);
             }
